@@ -1,0 +1,11 @@
+#page-swicth-container{
+    margin-top: 25px;
+    width: 100%;
+    display: inline-flex;
+}
+
+#page-swicth-container div{
+    width: 33%;
+    flex-wrap: wrap;
+    text-align: center;
+}
