@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* centerd page ites for login and registration template */
+
+.centered-form-container {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    width: 50%;
+    text-align: center;
+    mat-form-field {
+        max-width: 250px;
+        width: calc(100% / 2);
+        margin-left: 15px;
+    }
+    button {
+        max-width: 125px;
+        width: calc(100% / 4);
+        margin-left: 15px;
+    }
+}

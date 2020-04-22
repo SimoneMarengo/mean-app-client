@@ -11,4 +11,13 @@ export class AppComponent {
 
   constructor(private _router: Router) {}
 
+  gotoLogin() {
+    this._router.navigateByUrl('/login');
+  }
+  gotoRegistration() {
+    this._router.navigateByUrl('/registration');
+  }
+  gotoHomepage() {
+    this._router.navigateByUrl('/homepage');
+  }
 }

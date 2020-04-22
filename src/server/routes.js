@@ -8,15 +8,27 @@ module.exports = function (app) {
     // get all todos
     app.get('/api/todos', function (req, res) {
 
-        // use mongoose to get all todos in the database
-        Todo.find(function (err, todos) {
+        res.json(
+            {
+                value: "value 1"
+            },
+            {
+                value: "value 2"
+            },
+            {
+                value: "value 3"
+            }
+        );
 
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            if (err)
-                res.send(err)
+        // // use mongoose to get all todos in the database
+        // Todo.find(function (err, todos) {
 
-            res.json(todos); // return all todos in JSON format
-        });
+        //     // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        //     if (err)
+        //         res.send(err)
+
+        //     res.json(todos); // return all todos in JSON format
+        // });
     });
 
     // create todo and send back all todos after creation

@@ -10,6 +10,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MaterialModule } from './material.module';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule
   ],
   declarations: [

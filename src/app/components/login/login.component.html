@@ -2,10 +2,10 @@
     <form [formGroup]="form">
 
         <div class="form-field">
-            <mat-icon class="noselect form-field-icon" matSuffix color="primary">mail</mat-icon>
+            <mat-icon matSuffix color="primary">mail</mat-icon>
             <mat-form-field appearance="outline">
                 <mat-label>Insert mail</mat-label>
-                <input matInput (keyup.enter)="onSubmit()" formControlName="email"/>
+                <input matInput (keyup.enter)="onSubmit()" formControlName="email" />
                 <!--
                     <mat-error *ngIf="email().errors?.email">Non è una email</mat-error>
                     <mat-error *ngIf="email().errors?.required">Il campo è richiesto</mat-error>
@@ -14,11 +14,11 @@
         </div>
 
         <div class="form-field">
-            <mat-icon class="noselect form-field-icon" matSuffix color="primary">vpn_key</mat-icon>
+            <mat-icon matSuffix color="primary">vpn_key</mat-icon>
             <mat-form-field appearance="outline">
                 <mat-label>Insert password</mat-label>
-                <input matInput (keyup.enter)="onSubmit();" [type]="hide ? 'password' : 'text'" formControlName="password"/>
-                <mat-icon matSuffix (click)="hide = !hide" id="forgotten-password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input matInput (keyup.enter)="onSubmit();" [type]="hide ? 'password' : 'text'" formControlName="password" />
+                <mat-icon matSuffix (click)="triggerHide($event);" id="forgotten-password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <!--
                 <mat-hint align="end">
                     </div>
@@ -30,6 +30,8 @@
             -->
             </mat-form-field>
         </div>
+
+        <button mat-raised-button color="primary" (click)="onSubmit()" matTooltip="Sign in"> Sign in </button>
 
     </form>
 </div>

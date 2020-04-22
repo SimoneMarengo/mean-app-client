@@ -40,6 +40,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  triggerHide(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.hide = !this.hide;
+  }
+
   onSubmit() {
     this._router.navigateByUrl('/homepage');
   }
