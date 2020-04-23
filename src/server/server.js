@@ -1,12 +1,12 @@
 // set up ========================
-var express = require('express');
-var app = express();                                // create our app w/ express
-var mongoose = require('mongoose');                 // mongoose for mongodb
-var morgan = require('morgan');                     // log requests to the console (express4)
-var bodyParser = require('body-parser');            // pull information from HTML POST (express4)
-var methodOverride = require('method-override');    // simulate DELETE and PUT (express4)
-var database = require('./config/database');        // import batabase configurations
-var port = process.env.PORT || 8888;                // set the port
+const express = require('express');
+let app = express();                                    // create our app w/ express
+const mongoose = require('mongoose');                   // mongoose for mongodb
+const morgan = require('morgan');                       // log requests to the console (express4)
+const bodyParser = require('body-parser');              // pull information from HTML POST (express4)
+const methodOverride = require('method-override');      // simulate DELETE and PUT (express4)
+const database = require('./config/database');          // import batabase configurations
+const port = process.env.PORT || 8888;                  // set the port
 
 // Add headers
 app.all("/*", function (req, res, next) {
@@ -18,7 +18,7 @@ app.all("/*", function (req, res, next) {
 });
 
 // configuration ===============================================================
-let options = {
+const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true
 };

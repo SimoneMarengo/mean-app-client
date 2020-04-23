@@ -17,10 +17,12 @@ export class AuthService {
     headers = new HttpHeaders().set('Content-Type', 'application/json');
     currentUser = {};
 
-    constructor(private _httpClient: HttpClient, public router: Router) { }
+    constructor(
+        private _httpClient: HttpClient,
+        public _router: Router
+    ) { }
 
     register(user: User): Observable<any> {
-
         return this._httpClient
             .post(`${this.API_URL}/users/registration`, user)
             .pipe(
@@ -38,7 +40,7 @@ export class AuthService {
                         .subscribe(
                             res => {
                                 this.currentUser = res;
-                                this.router.navigate(['/homepage' + res.msg._id]);
+                                this._router.navigate(['/homepage' + res.msg._id]);
                             },
                             err => {
                             });
@@ -58,7 +60,7 @@ export class AuthService {
 
     logout() {
         if (localStorage.removeItem('access_token') == null) {
-            this.router.navigate(['users/login']);
+            this._router.navigate(['users/login']);
         }
     }
 

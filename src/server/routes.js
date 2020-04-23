@@ -14,5 +14,5 @@ module.exports = function (app) {
 
     app.post('/users/registration', function (req, res) {
         res.send(req.body);
-    })
+    });
 };
