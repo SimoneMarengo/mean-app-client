@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MaterialModule } from './material.module';
 import { HttpModule } from '@angular/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { HttpModule } from '@angular/http';
     MaterialModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   declarations: [
@@ -28,7 +31,13 @@ import { HttpModule } from '@angular/http';
     LoginComponent,
     RegistrationComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

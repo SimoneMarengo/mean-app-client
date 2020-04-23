@@ -1,11 +1,8 @@
 <mat-list>
-    <div *ngFor="let api of APIs" class="api-item-container">
+    <div class="api-item-container">
 
         <mat-list-item>
-            <button mat-raised-button (click)="tryApi(api)">{{api.name}}</button>
-            <p>
-                {{api.response | json}}
-            </p>
+            <button mat-raised-button (click)="tryApi()">ping</button>
         </mat-list-item>
     </div>
 </mat-list>

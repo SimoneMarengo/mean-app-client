@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  hide = true;  // for password visibility trigger
+  hide = true;
 
-  form: FormGroup;  // form for the login validation
+  form: FormGroup;
 
-  email = () => this.form.get('email');         // getter for email validators
-  password = () => this.form.get('password');   // getter for password validators
+  email = () => this.form.get('email');
+  password = () => this.form.get('password');
 
   constructor(
     private _router: Router,
+    private _authService: AuthService,
     _formBuilder: FormBuilder
   ) {
     this.form = this.createForm(_formBuilder);
@@ -47,6 +49,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this._router.navigateByUrl('/homepage');
+    this._authService.login(this.form.value);
   }
 }
