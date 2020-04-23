@@ -60,10 +60,10 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         res => {
           if (res.result) {
-            this.form.reset()
+            this.form.reset();
             this._router.navigate(['login']);
           }
-        })
+        });
   }
 
 }

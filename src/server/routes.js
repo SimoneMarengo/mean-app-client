@@ -6,10 +6,13 @@ module.exports = function (app) {
 
     app.post('/ping', function (req, res) {
         res.send(req.body)
-    })
+    });
 
     app.post('/users/login', function (req, res) {
-        console.log(req)
+        res.send(req.body);
+    });
+
+    app.post('/users/registration', function (req, res) {
         res.send(req.body);
     })
 };
