@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
@@ -12,18 +13,23 @@ export class TestService {
         private _http: Http
     ) { }
 
-    getAllTodos(): any {
-        let url = this.APIDashboard + "todos";
-        return this._http
-            .get(url)
+    pingTest() {
+        const headers = new HttpHeaders()
+            .set('Authorization', 'my-auth-token')
+            .set('Content-Type', 'application/json');
+
+        this._http
+            .post('http://localhost:8888/ping', {
+                headers: headers
+            })
             .subscribe(
-                result => {
-                    if (result) { return result; }
+                data => {
+                    console.log(data);
                 },
-                (err: Response) => {
-                    return err.toString();
+                err => {
+
                 }
-            )
+            );
     }
 
 }

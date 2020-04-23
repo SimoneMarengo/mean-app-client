@@ -23,6 +23,6 @@ export class HomepageComponent implements OnInit {
   }
 
   tryApi(api: ApiModel) {
-      api.response = this._testService.getAllTodos();
+     this._testService.pingTest();
   }
 }
